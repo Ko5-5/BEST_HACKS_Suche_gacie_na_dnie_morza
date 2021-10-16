@@ -72,20 +72,17 @@ class _MapPageState extends State<MapPage> {
         ),
         body: Column(
           children: [
-            SizedBox(
-              height: 15,
-            ),
             Stack(
               children: [
                 Container(
                   child: MapSample(),
-                  height: MediaQuery.of(context).size.height,
+                  height: 740,
                   width: MediaQuery.of(context).size.width,
                 ),
                 Column(
                   children: [
                     SearchBox(),
-                    Align(
+                    /*Align(
                       alignment: Alignment.bottomCenter,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -123,12 +120,19 @@ class _MapPageState extends State<MapPage> {
                           ),
                         ],
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               ],
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          label: Text('Ask for help'),
+          icon: Icon(Icons.local_hospital_outlined),
+          backgroundColor: Color(0xFFD66349),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       );
 }
