@@ -70,61 +70,65 @@ class _MapPageState extends State<MapPage> {
                 fontFamily: 'NotoSerif'),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 15,
-              ),
-              SearchBox(),
-              SizedBox(
-                child: MapSample(),
-                height: 460,
-                width: 360,
-              ),
-              Spacer(),
-              Center(
-                child: Column(
+        body: Column(
+          children: [
+            SizedBox(
+              height: 15,
+            ),
+            Stack(
+              children: [
+                Container(
+                  child: MapSample(),
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                ),
+                Column(
                   children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Image.asset(
-                        'assets/images/hospital.png',
-                        scale: 1 / 2,
+                    SearchBox(),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Image.asset(
+                              'assets/images/hospital.png',
+                              scale: 1 / 2,
+                            ),
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side:
+                                        BorderSide(color: Colors.transparent)),
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Color(0xFFD66349)),
+                              elevation: MaterialStateProperty.all(5.0),
+                              padding: MaterialStateProperty.all(
+                                  const EdgeInsets.all(30)),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Ask for help",
+                            style: TextStyle(
+                                color: Color(0xFF4A576D),
+                                fontSize: 20,
+                                fontFamily: 'NotoSerif'),
+                          ),
+                        ],
                       ),
-                      style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.transparent)),
-                        ),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Color(0xFFD66349)),
-                        elevation: MaterialStateProperty.all(5.0),
-                        padding:
-                            MaterialStateProperty.all(const EdgeInsets.all(30)),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Ask for help",
-                      style: TextStyle(
-                          color: Color(0xFF4A576D),
-                          fontSize: 20,
-                          fontFamily: 'NotoSerif'),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              )
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       );
 }

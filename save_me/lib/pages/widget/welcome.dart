@@ -29,7 +29,7 @@ class WelcomeWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onSave,
                     icon: Icon(Icons.local_hospital),
                     iconSize: 260,
                     color: Color(0xFFD66349),
@@ -51,7 +51,7 @@ class WelcomeWidget extends StatelessWidget {
                     ),*/
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: onHelp,
                     child: Text('SAVE OTHERS'),
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
