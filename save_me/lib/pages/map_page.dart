@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:save_me/pages/widget/searchbox.dart';
 
+import 'package:save_me/pages/widget/searchbox.dart';
 import 'package:save_me/pages/widget/googlemap.dart';
 
 class MapPage extends StatefulWidget {

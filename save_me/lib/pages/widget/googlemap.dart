@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 class GoogleMapWidget extends StatefulWidget {
   @override
@@ -8,6 +9,8 @@ class GoogleMapWidget extends StatefulWidget {
 }
 
 class GoogleMapWidgetState extends State<GoogleMapWidget> {
+  LatLng currentLatLng;
+
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -42,25 +45,34 @@ class GoogleMapWidgetState extends State<GoogleMapWidget> {
     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
   );
   List<Marker> markerList = [];
+
   @override
   void initState() {
-    markerList = [marker1, marker2, marker3];
-    // _markers.addAll(list);
     super.initState();
+    markerList = [marker1, marker2, marker3];
+    Geolocator.getCurrentPosition().then((currLocation) {
+      setState(() {
+        currentLatLng =
+            new LatLng(currLocation.latitude, currLocation.longitude);
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: GoogleMap(
-        compassEnabled: true,
-        mapType: MapType.hybrid,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-        markers: Set<Marker>.of(markerList),
-      ),
+      body: currentLatLng == null
+          ? Center(child: CircularProgressIndicator())
+          : GoogleMap(
+              compassEnabled: true,
+              mapType: MapType.hybrid,
+              initialCameraPosition:
+                  CameraPosition(target: currentLatLng, zoom: 14),
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
+              markers: Set<Marker>.of(markerList),
+            ),
     );
   }
 
