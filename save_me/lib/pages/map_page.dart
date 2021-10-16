@@ -1,5 +1,53 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:save_me/pages/widget/searchbox.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class MapSample extends StatefulWidget {
+  @override
+  State<MapSample> createState() => MapSampleState();
+}
+
+class MapSampleState extends State<MapSample> {
+  Completer<GoogleMapController> _controller = Completer();
+
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(51.107645, 17.061132),
+    zoom: 14.4746,
+  );
+
+  static final CameraPosition _kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(37.43296265331129, -122.08832357078792),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: GoogleMap(
+        mapType: MapType.hybrid,
+        initialCameraPosition: _kGooglePlex,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
+      ),
+      /*
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _goToTheLake,
+        label: Text('To the hospital!'),
+        icon: Icon(Icons.local_hospital),
+        backgroundColor: Colors.red,
+      ),*/
+    );
+  }
+
+  Future<void> _goToTheLake() async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+  }
+}
 
 class MapPage extends StatefulWidget {
   @override
@@ -27,9 +75,14 @@ class _MapPageState extends State<MapPage> {
           child: Column(
             children: [
               SizedBox(
-                height: 35,
+                height: 15,
               ),
               SearchBox(),
+              SizedBox(
+                child: MapSample(),
+                height: 460,
+                width: 360,
+              ),
               Spacer(),
               Center(
                 child: Column(
@@ -54,11 +107,13 @@ class _MapPageState extends State<MapPage> {
                             MaterialStateProperty.all(const EdgeInsets.all(30)),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       "Ask for help",
                       style: TextStyle(
-                        color: Color(0xFF4A576D),
+                          color: Color(0xFF4A576D),
                           fontSize: 20,
                           fontFamily: 'NotoSerif'),
                     ),
@@ -66,7 +121,7 @@ class _MapPageState extends State<MapPage> {
                 ),
               ),
               SizedBox(
-                height: 80,
+                height: 10,
               )
             ],
           ),
