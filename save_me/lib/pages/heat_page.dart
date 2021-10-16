@@ -28,5 +28,6 @@ class HeatPage extends StatelessWidget {
         ),
         colorYes: colorYesQ,
         colorNo: colorNoQ,
+        filename: "assets/images/przegrzanue.png",
       );
 }

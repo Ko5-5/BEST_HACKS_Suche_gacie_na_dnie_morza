@@ -29,5 +29,6 @@ class BleedingPage extends StatelessWidget {
         ),
         colorYes: colorYesQ,
         colorNo: colorNoQ,
+        filename: "assets/images/krew.png",
       );
 }

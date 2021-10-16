@@ -26,6 +26,11 @@ flutter:
   assets:
     - assets/images/search.png
     - assets/images/hospital.png
+    - assets/images/krew.png
+    - assets/images/oddychanie.png
+    - assets/images/pluca.png
+    - assets/images/przegrzanue.png
+    - assets/images/serce.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

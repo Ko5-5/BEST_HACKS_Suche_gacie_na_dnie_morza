@@ -29,5 +29,6 @@ class CirculationPage extends StatelessWidget {
         ),
         colorYes: colorYesQ,
         colorNo: colorNoQ,
+        filename: "assets/images/serce.png",
       );
 }

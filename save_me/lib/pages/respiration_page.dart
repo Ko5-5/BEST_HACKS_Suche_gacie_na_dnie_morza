@@ -29,5 +29,6 @@ class RespirationPage extends StatelessWidget {
         ),
         colorYes: colorYesQ,
         colorNo: colorNoQ,
+        filename: "assets/images/pluca.png",
       );
 }

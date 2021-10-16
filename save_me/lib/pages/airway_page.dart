@@ -29,5 +29,6 @@ class AirwayPage extends StatelessWidget {
         ),
         colorYes: colorYesQ,
         colorNo: colorNoQ,
+        filename: "assets/images/oddychanie.png",
       );
 }

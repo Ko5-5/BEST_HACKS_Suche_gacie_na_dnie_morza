@@ -8,27 +8,31 @@ class QuestionWidget extends StatelessWidget {
   final Function onNo;
   final MaterialStateProperty<Color> colorYes;
   final MaterialStateProperty<Color> colorNo;
-  const QuestionWidget(
-      {this.title,
-      this.question,
-      this.onYes,
-      this.onNo,
-      this.colorYes,
-      this.colorNo});
+  final String filename;
+  const QuestionWidget({
+    this.title,
+    this.question,
+    this.onYes,
+    this.onNo,
+    this.colorYes,
+    this.colorNo,
+    this.filename,
+  });
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-            backgroundColor: Color(0xFFD66349),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
-            ),
-            title: Text(
-              title,
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'NotoSerif'),
-            ),),
+          backgroundColor: Color(0xFFD66349),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+          ),
+          title: Text(
+            title,
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'NotoSerif'),
+          ),
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(32.0),
@@ -38,6 +42,14 @@ class QuestionWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Spacer(),
+                  Container(
+                    child: Image.asset(
+                      filename,
+                      scale: 0.5,
+                    ),
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                  ),
                   Text(
                     question,
                     style: TextStyle(
