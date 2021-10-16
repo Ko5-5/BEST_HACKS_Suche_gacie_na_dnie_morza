@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:save_me/pages/airway_page.dart';
 import 'package:save_me/pages/widget/question.dart';
+import 'package:save_me/pages/heat_page.dart';
 
 import 'map_page.dart';
 
-class BleedingPage extends StatelessWidget {
-  final String bleedingTitle = "Question M.";
-  final String bleedingQuestion = 'Check for massive bleeding';
+class CirculationPage extends StatelessWidget {
+  final String brokenTitle = "Question C.";
+  final String brokenQuestion = 'Check for problems with blood circulation';
   final MaterialStateProperty<Color> colorYesQ =
       MaterialStateProperty.all<Color>(Color(0xFFD66349));
   final MaterialStateProperty<Color> colorNoQ =
       MaterialStateProperty.all<Color>(Color(0xFF3FB77C));
   @override
   Widget build(BuildContext context) => QuestionWidget(
-        title: bleedingTitle,
-        question: bleedingQuestion,
+        title: brokenTitle,
+        question: brokenQuestion,
         onYes: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -24,7 +24,7 @@ class BleedingPage extends StatelessWidget {
         onNo: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => AirwayPage(),
+            builder: (context) => HeatPage(),
           ),
         ),
         colorYes: colorYesQ,
