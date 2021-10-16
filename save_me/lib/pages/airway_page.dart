@@ -8,9 +8,9 @@ class AirwayPage extends StatelessWidget {
   final String airwayTitle = "Question 2";
   final String airwayQuestion = 'Check for breathing';
   final MaterialStateProperty<Color> colorYesQ =
-      MaterialStateProperty.all<Color>(Colors.green);
+      MaterialStateProperty.all<Color>(Color(0xFF3FB77C));
   final MaterialStateProperty<Color> colorNoQ =
-      MaterialStateProperty.all<Color>(Colors.red);
+      MaterialStateProperty.all<Color>(Color(0xFFD66349));
   @override
   Widget build(BuildContext context) => QuestionWidget(
         title: airwayTitle,

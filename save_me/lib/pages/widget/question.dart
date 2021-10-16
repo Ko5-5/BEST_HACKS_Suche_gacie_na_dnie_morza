@@ -18,17 +18,17 @@ class QuestionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.red,
+            backgroundColor: Color(0xFFD66349),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
             ),
             title: Text(
               title,
               style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            )),
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'NotoSerif'),
+            ),),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(32.0),
@@ -38,17 +38,25 @@ class QuestionWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Spacer(),
-                  Text(question,
-                      style: TextStyle(
+                  Text(
+                    question,
+                    style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
-                      )),
-                  Divider(height: 10),
+                        fontFamily: 'NotoSerif'),
+                    textAlign: TextAlign.center,
+                  ),
+                  Divider(height: 20, thickness: 2),
                   Spacer(flex: 8),
                   ElevatedButton(
                     onPressed: onYes,
                     child: Text('Yes'),
                     style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.transparent)),
+                      ),
                       backgroundColor: colorYes,
                       elevation: MaterialStateProperty.all(5.0),
                       padding:
@@ -64,6 +72,11 @@ class QuestionWidget extends StatelessWidget {
                     onPressed: onNo,
                     child: Text('No'),
                     style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.transparent)),
+                      ),
                       backgroundColor: colorNo,
                       elevation: MaterialStateProperty.all(5.0),
                       padding:

@@ -8,9 +8,9 @@ class BleedingPage extends StatelessWidget {
   final String bleedingTitle = "Question 1";
   final String bleedingQuestion = 'Check for massive bleeding';
   final MaterialStateProperty<Color> colorYesQ =
-      MaterialStateProperty.all<Color>(Colors.red);
+      MaterialStateProperty.all<Color>(Color(0xFFD66349));
   final MaterialStateProperty<Color> colorNoQ =
-      MaterialStateProperty.all<Color>(Colors.green);
+      MaterialStateProperty.all<Color>(Color(0xFF3FB77C));
   @override
   Widget build(BuildContext context) => QuestionWidget(
         title: bleedingTitle,

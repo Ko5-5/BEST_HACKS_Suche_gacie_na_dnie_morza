@@ -7,9 +7,9 @@ class BrokenPage extends StatelessWidget {
   final String brokenTitle = "Question 3";
   final String brokenQuestion = 'Check for broken bones';
   final MaterialStateProperty<Color> colorYesQ =
-      MaterialStateProperty.all<Color>(Colors.red);
+      MaterialStateProperty.all<Color>(Color(0xFFD66349));
   final MaterialStateProperty<Color> colorNoQ =
-      MaterialStateProperty.all<Color>(Colors.green);
+      MaterialStateProperty.all<Color>(Color(0xFF3FB77C));
   @override
   Widget build(BuildContext context) => QuestionWidget(
         title: brokenTitle,
