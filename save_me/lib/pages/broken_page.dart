@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:save_me/pages/widget/question.dart';
-import 'package:save_me/pages/broken_page.dart';
 
 import 'map_page.dart';
 
-class AirwayPage extends StatelessWidget {
-  final String airwayTitle = "Question 2";
-  final String airwayQuestion = 'Check for breathing';
+class BrokenPage extends StatelessWidget {
+  final String brokenTitle = "Question 3";
+  final String brokenQuestion = 'Check for broken bones';
   final MaterialStateProperty<Color> colorYesQ =
-      MaterialStateProperty.all<Color>(Colors.green);
-  final MaterialStateProperty<Color> colorNoQ =
       MaterialStateProperty.all<Color>(Colors.red);
+  final MaterialStateProperty<Color> colorNoQ =
+      MaterialStateProperty.all<Color>(Colors.green);
   @override
   Widget build(BuildContext context) => QuestionWidget(
-        title: airwayTitle,
-        question: airwayQuestion,
+        title: brokenTitle,
+        question: brokenQuestion,
         onYes: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => BrokenPage(),
+            builder: (context) => MapPage(),
           ),
         ),
         onNo: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MapPage(),
+            builder: (context) => BrokenPage(),
           ),
         ),
         colorYes: colorYesQ,
