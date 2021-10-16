@@ -35,10 +35,16 @@ class GoogleMapWidgetState extends State<GoogleMapWidget> {
     infoWindow: InfoWindow(title: 'SOR Kliniki'),
     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
   );
+  Marker marker3 = Marker(
+    markerId: MarkerId('Hospital3'),
+    position: LatLng(51.07362783932242, 17.020204067230228),
+    infoWindow: InfoWindow(title: 'SOR Ślęzna'),
+    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+  );
   List<Marker> markerList = [];
   @override
   void initState() {
-    markerList = [marker1, marker2];
+    markerList = [marker1, marker2, marker3];
     // _markers.addAll(list);
     super.initState();
   }
