@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:save_me/pages/widget/question.dart';
-import 'package:save_me/pages/other_page.dart';
+import 'package:save_me/pages/heat_page.dart';
 
 import 'map_page.dart';
 
-class HeatPage extends StatelessWidget {
-  final String brokenTitle = "Question H.";
-  final String brokenQuestion = 'Check for hipothermia symptoms';
+class OtherPage extends StatelessWidget {
+  final String otkerTitle = "Question Other";
+  final String otkerQuestion = 'Is it a life threat?';
   final MaterialStateProperty<Color> colorYesQ =
       MaterialStateProperty.all<Color>(Color(0xFFD66349));
   final MaterialStateProperty<Color> colorNoQ =
       MaterialStateProperty.all<Color>(Color(0xFF3FB77C));
   @override
   Widget build(BuildContext context) => QuestionWidget(
-        title: brokenTitle,
-        question: brokenQuestion,
+        title: otkerTitle,
+        question: otkerQuestion,
         onYes: () => Navigator.push(
           context,
           MaterialPageRoute(
@@ -24,11 +24,11 @@ class HeatPage extends StatelessWidget {
         onNo: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => OtherPage(),
+            builder: (context) => MapPage(),
           ),
         ),
         colorYes: colorYesQ,
         colorNo: colorNoQ,
-        filename: "assets/images/przegrzanue.png",
+        filename: "assets/images/life_threat.png",
       );
 }

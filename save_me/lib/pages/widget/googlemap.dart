@@ -9,7 +9,7 @@ class GoogleMapWidget extends StatefulWidget {
 }
 
 class GoogleMapWidgetState extends State<GoogleMapWidget> {
-  LatLng currentLatLng;
+  LatLng currentLatLng = LatLng(51.107645, 17.061132);
 
   Completer<GoogleMapController> _controller = Completer();
 

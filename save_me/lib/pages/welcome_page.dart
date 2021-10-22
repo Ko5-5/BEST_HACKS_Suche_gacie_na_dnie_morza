@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:save_me/pages/widget/welcome.dart';
 import 'package:save_me/pages/bleeding_page.dart';
-import 'package:save_me/pages/map_page.dart';
+import 'package:save_me/pages/cases_page.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
         onHelp: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MapPage(),
+            builder: (context) => CasesPage(),
           ),
         ),
       );

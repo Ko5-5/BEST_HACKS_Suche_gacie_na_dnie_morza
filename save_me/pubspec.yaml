@@ -31,6 +31,7 @@ flutter:
     - assets/images/pluca.png
     - assets/images/przegrzanue.png
     - assets/images/serce.png
+    - assets/images/life_threat.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
