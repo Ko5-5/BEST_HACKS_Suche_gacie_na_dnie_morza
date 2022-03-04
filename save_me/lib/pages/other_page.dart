@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:save_me/pages/widget/question.dart';
-import 'package:save_me/pages/heat_page.dart';
 
 import 'map_page.dart';
 

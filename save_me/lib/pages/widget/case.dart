@@ -5,8 +5,9 @@ class CaseWidget extends StatelessWidget {
   final String caseCode;
   final String location;
   final int distance;
+  final int indCode;
 
-  const CaseWidget({this.caseCode, this.location, this.distance});
+  const CaseWidget({this.caseCode, this.location, this.distance, this.indCode});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,8 @@ class CaseWidget extends StatelessWidget {
               Center(
                   child: Column(
                 children: [
+                  Text("Distance: ${distance}m",
+                      style: TextStyle(fontSize: 16)),
                   Text("Location:", style: TextStyle(fontSize: 16)),
                   Text(location, style: TextStyle(fontSize: 16)),
                 ],
@@ -41,12 +44,13 @@ class CaseWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Distance: ${distance}m", style: TextStyle(fontSize: 16)),
+                Text("#" + indCode.toString().padLeft(5, '0'),
+                    style: TextStyle(fontSize: 16)),
                 ElevatedButton(
                   onPressed: () {},
                   child: Text(
                     "SAVE",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 24),
                   ),
                   style: ButtonStyle(
                       backgroundColor:

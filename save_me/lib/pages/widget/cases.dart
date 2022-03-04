@@ -11,7 +11,12 @@ class CasesWidget extends StatefulWidget {
 
 class _CasesWidgetState extends State<CasesWidget> {
   List<CaseWidget> bottom = <CaseWidget>[
-    CaseWidget(caseCode: "T", location: "Ul. Wroclawska", distance: 300)
+    CaseWidget(
+      caseCode: "T",
+      location: "Ul. Wroclawska",
+      distance: 300,
+      indCode: 1,
+    )
   ];
 
   @override
@@ -41,7 +46,7 @@ class _CasesWidgetState extends State<CasesWidget> {
                 return Container(
                   alignment: Alignment.center,
                   color: Color(0xFFD66349),
-                  height: 100,
+                  height: 120,
                   child: bottom[index],
                 );
               },
@@ -55,7 +60,10 @@ class _CasesWidgetState extends State<CasesWidget> {
           setState(
             () {
               bottom.add(CaseWidget(
-                  caseCode: "T", location: "Ul. Wroclawska", distance: 300));
+                  caseCode: "T",
+                  location: "Ul. Wroclawska",
+                  distance: 300,
+                  indCode: bottom.length + 1));
             },
           );
         },
